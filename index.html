@@ -50,222 +50,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --ivory: #FAF8F4; --cream: #F2EEE6; --warm-white: #FFFFFE;
-      --charcoal: #1C1C1A; --slate: #3A3A37; --muted: #6B6B66;
-      --gold: #B8976A; --gold-light: #D4B896; --gold-dark: #8C6F48;
-      --border: rgba(28,28,26,0.12);
-      --serif: 'Montserrat', sans-serif;
-      --sans: 'Inter', sans-serif;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); background: var(--ivory); color: var(--charcoal); font-weight: 400; line-height: 1.65; overflow-x: hidden; }
-
-    /* ANNOUNCEMENT */
-    .announcement { background: var(--charcoal); color: rgba(255,255,255,0.75); text-align: center; padding: 0.6rem 2rem; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
-    .announcement strong { color: var(--gold-light); }
-
-    /* NAV */
-    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 5vw; background: rgba(250,248,244,0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-family: var(--serif); font-size: 1.2rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; }
-    .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
-    .nav-links a { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-cta { background: var(--gold) !important; color: #fff !important; padding: 0.65rem 1.6rem !important; }
-    .nav-cta:hover { background: var(--gold-dark) !important; }
-    .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
-    .hamburger span { width: 24px; height: 1.5px; background: var(--charcoal); display: block; }
-    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--ivory); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-family: var(--serif); font-size: 2rem; font-weight: 800; text-transform: uppercase; color: var(--charcoal); text-decoration: none; letter-spacing: 0.04em; }
-    .mobile-close { position: absolute; top: 1.5rem; right: 5vw; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--charcoal); }
-
-    /* HERO */
-    .hero { min-height: 92vh; display: grid; grid-template-columns: 55% 45%; }
-    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 5vw 5rem 8vw; background: var(--ivory); }
-    .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
-    .hero-eyebrow::before { content: ''; width: 32px; height: 2px; background: var(--gold); }
-    h1.hero-title { font-family: var(--serif); font-size: clamp(2.8rem, 5.5vw, 5.5rem); font-weight: 900; line-height: 1.0; color: var(--charcoal); margin-bottom: 1.4rem; letter-spacing: -0.02em; text-transform: uppercase; }
-    h1.hero-title em { font-style: normal; color: var(--gold); display: block; }
-    .hero-subtitle { font-size: 1rem; color: var(--slate); max-width: 440px; line-height: 1.7; margin-bottom: 0.8rem; font-weight: 500; }
-    .price-callout { display: inline-flex; align-items: center; gap: 0.8rem; background: var(--cream); border-left: 3px solid var(--gold); padding: 0.8rem 1.2rem; margin-bottom: 2rem; margin-top: 0.5rem; }
-    .price-callout .price { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; color: var(--charcoal); line-height: 1; }
-    .price-callout .price-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.06em; line-height: 1.45; }
-    .price-callout .price-label strong { color: var(--gold); font-weight: 400; }
-    .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 2.8rem; }
-    .btn-gold { background: var(--gold); color: #fff; padding: 1rem 2.4rem; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: background 0.25s; display: inline-block; }
-    .btn-gold:hover { background: var(--gold-dark); }
-    .btn-primary { background: var(--charcoal); color: #fff; padding: 1rem 2.4rem; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: background 0.25s; display: inline-block; }
-    .btn-primary:hover { background: var(--gold); }
-    .btn-ghost { color: var(--charcoal); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
-    .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
-    .hero-trust { display: flex; gap: 1.8rem; align-items: center; }
-    .trust-item { text-align: center; }
-    .trust-number { font-family: var(--serif); font-size: 1.8rem; font-weight: 300; color: var(--charcoal); display: block; line-height: 1; }
-    .trust-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.2rem; }
-    .trust-divider { width: 1px; height: 36px; background: var(--border); }
-    .hero-right { background: var(--cream); position: relative; overflow: hidden; display: flex; align-items: stretch; }
-    .hero-img-area { width: 100%; min-height: 550px; background: linear-gradient(160deg, #EDE8DE 0%, #CFC8BA 100%); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.8rem; position: relative; }
-    .hero-img-area p { font-family: var(--serif); font-size: 0.85rem; color: #8C6F48; letter-spacing: 0.1em; opacity: 0.5; }
-    .hero-badge { position: absolute; bottom: 2rem; left: -1.5rem; background: var(--warm-white); padding: 1.2rem 1.5rem; border-left: 3px solid var(--gold); max-width: 230px; box-shadow: 0 4px 24px rgba(28,28,26,0.1); }
-    .hero-badge-stars { color: var(--gold); font-size: 0.8rem; margin-bottom: 0.4rem; }
-    .hero-badge-text { font-family: var(--serif); font-size: 0.95rem; font-style: italic; color: var(--slate); line-height: 1.4; }
-    .hero-badge-author { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
-
-    /* AREAS TICKER */
-    .areas-bar { background: var(--charcoal); padding: 1rem 0; overflow: hidden; position: relative; }
-    .areas-bar::before, .areas-bar::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; }
-    .areas-bar::before { left: 0; background: linear-gradient(to right, var(--charcoal), transparent); }
-    .areas-bar::after { right: 0; background: linear-gradient(to left, var(--charcoal), transparent); }
-    .areas-track { display: flex; animation: scroll-areas 30s linear infinite; width: max-content; }
-    @keyframes scroll-areas { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .area-item { display: flex; align-items: center; gap: 1.5rem; padding: 0 2rem; white-space: nowrap; }
-    .area-item span { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
-    .area-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-
-    /* SERVICES */
-    .services { padding: 7rem 8vw; background: var(--warm-white); }
-    .section-header { text-align: center; margin-bottom: 4rem; }
-    .section-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.8rem; }
-    .section-title { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; color: var(--charcoal); line-height: 1.1; text-transform: uppercase; letter-spacing: -0.01em; }
-    .section-title em { font-style: normal; color: var(--gold); }
-    .section-sub { font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; max-width: 500px; margin-left: auto; margin-right: auto; font-weight: 400; }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--border); }
-    .service-card { background: var(--warm-white); padding: 3rem 2.5rem; position: relative; overflow: hidden; transition: background 0.3s; }
-    .service-card:hover { background: var(--ivory); }
-    .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
-    .service-card:hover::before { transform: scaleX(1); }
-    .service-number { font-family: var(--serif); font-size: 3rem; font-weight: 900; color: var(--cream); line-height: 1; margin-bottom: 1rem; display: block; letter-spacing: -0.02em; }
-    .service-name { font-family: var(--serif); font-size: 1.5rem; font-weight: 800; color: var(--charcoal); margin-bottom: 0.5rem; line-height: 1.15; text-transform: uppercase; letter-spacing: 0.01em; }
-    .service-price { display: inline-block; background: var(--cream); border: 1px solid var(--gold-light); color: var(--gold-dark); font-size: 0.72rem; letter-spacing: 0.08em; padding: 0.28rem 0.8rem; margin-bottom: 1rem; font-weight: 700; text-transform: uppercase; }
-    .service-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.5rem; }
-    .service-includes { list-style: none; margin-bottom: 2rem; }
-    .service-includes li { font-size: 0.8rem; color: var(--slate); padding: 0.4rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.6rem; }
-    .service-includes li::before { content: ''; width: 18px; height: 1px; background: var(--gold); flex-shrink: 0; }
-    .service-link { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.2s, gap 0.2s; }
-    .service-link:hover { color: var(--gold); gap: 0.8rem; }
-    .service-badge { position: absolute; top: 1.8rem; right: 1.8rem; background: var(--gold); color: #fff; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.7rem; }
-
-    /* URGENCY */
-    .urgency-strip { background: var(--gold); padding: 2rem 8vw; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-    .urgency-text { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; color: #fff; }
-    .urgency-text strong { font-weight: 600; }
-    .urgency-sub { font-size: 0.78rem; color: rgba(255,255,255,0.8); margin-top: 0.2rem; }
-    .btn-white { background: #fff; color: var(--gold-dark); padding: 1rem 2.4rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; transition: background 0.25s; white-space: nowrap; flex-shrink: 0; }
-    .btn-white:hover { background: var(--cream); }
-
-    /* WHY US */
-    .why-us { padding: 7rem 8vw; background: var(--charcoal); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-    .why-left .section-eyebrow { color: var(--gold-light); }
-    .why-left .section-title { color: #fff; text-align: left; }
-    .why-left .section-title em { color: var(--gold-light); }
-    .why-left > p { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.8; margin-top: 1.2rem; max-width: 420px; }
-    .why-cta { margin-top: 2.5rem; background: var(--gold); color: #fff; padding: 1rem 2.4rem; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; display: inline-block; transition: background 0.25s; }
-    .why-cta:hover { background: var(--gold-dark); }
-    .why-right { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.08); }
-    .why-item { background: rgba(255,255,255,0.04); padding: 2rem 1.8rem; transition: background 0.3s; }
-    .why-item:hover { background: rgba(184,151,106,0.12); }
-    .why-icon { width: 38px; height: 38px; border: 1px solid rgba(184,151,106,0.4); display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; }
-    .why-icon svg { width: 18px; height: 18px; stroke: var(--gold-light); fill: none; stroke-width: 1.5; }
-    .why-item h4 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: #fff; margin-bottom: 0.4rem; }
-    .why-item p { font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.7; }
-
-    /* PROCESS */
-    .process { padding: 7rem 8vw; background: var(--ivory); }
-    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 4rem; position: relative; }
-    .process-steps::before { content: ''; position: absolute; top: 1.35rem; left: 12.5%; right: 12.5%; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
-    .step { text-align: center; padding: 0 1.5rem; }
-    .step-number { width: 44px; height: 44px; background: var(--cream); border: 1px solid var(--gold-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.8rem; font-family: var(--serif); font-size: 1rem; font-weight: 300; color: var(--gold); position: relative; z-index: 1; }
-    .step h4 { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.55rem; }
-    .step p { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
-
-    /* AREAS SECTION */
-    .areas-section { padding: 7rem 8vw; background: var(--cream); }
-    .areas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px; background: var(--border); margin-top: 3.5rem; }
-    .area-card { background: var(--cream); padding: 2rem 1.8rem; transition: background 0.3s; text-decoration: none; display: block; }
-    .area-card:hover { background: var(--warm-white); }
-    .area-card h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 800; color: var(--charcoal); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.04em; }
-    .area-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
-    .area-link-label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 0.8rem; display: flex; align-items: center; gap: 0.4rem; }
-
-    /* TESTIMONIALS */
-    .testimonials { padding: 7rem 8vw; background: var(--warm-white); }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
-    .testimonial-card { background: var(--ivory); padding: 2.2rem 2rem; border-bottom: 2px solid transparent; transition: border-color 0.3s, background 0.3s; }
-    .testimonial-card:hover { border-color: var(--gold); background: var(--warm-white); }
-    .testimonial-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 1.2rem; }
-    .testimonial-text { font-family: var(--sans); font-size: 0.95rem; font-style: normal; font-weight: 500; color: var(--slate); line-height: 1.7; margin-bottom: 1.5rem; }
-    .testimonial-author { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-    .testimonial-author strong { color: var(--charcoal); font-weight: 700; }
-
-    /* BOOKING */
-    .booking { padding: 7rem 8vw; background: var(--ivory); display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: start; }
-    .booking-left .section-title, .booking-left .section-eyebrow { text-align: left; }
-    .booking-left > p { font-size: 0.88rem; color: var(--muted); margin-top: 1.2rem; line-height: 1.8; max-width: 380px; }
-    .booking-promise { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.85rem; }
-    .promise-item { display: flex; align-items: flex-start; gap: 0.9rem; }
-    .promise-check { width: 20px; height: 20px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
-    .promise-check svg { width: 10px; height: 10px; stroke: var(--gold); fill: none; stroke-width: 2.5; }
-    .promise-item span { font-size: 0.85rem; color: var(--slate); line-height: 1.5; font-weight: 600; }
-    .booking-form { background: var(--warm-white); padding: 2.5rem; border: 1px solid var(--border); }
-    .form-heading { font-family: var(--serif); font-size: 1.4rem; font-weight: 800; color: var(--charcoal); margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.02em; }
-    .form-subheading { font-size: 0.76rem; color: var(--muted); margin-bottom: 1.8rem; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
-    .form-group.full { grid-column: 1 / -1; }
-    .form-group label { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal); font-weight: 700; }
-    .form-group input, .form-group select, .form-group textarea { background: var(--ivory); border: 1px solid var(--border); border-radius: 0; padding: 0.8rem 1rem; font-family: var(--sans); font-size: 0.85rem; font-weight: 500; color: var(--charcoal); width: 100%; outline: none; transition: border-color 0.2s; appearance: none; }
-    .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8A84' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
-    .form-group textarea { resize: vertical; min-height: 90px; }
-    .form-submit { grid-column: 1 / -1; background: var(--gold); color: #fff; border: none; padding: 1.1rem 2.4rem; font-family: var(--sans); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background 0.25s; width: 100%; margin-top: 0.5rem; }
-    .form-submit:hover { background: var(--gold-dark); }
-    .form-note { grid-column: 1 / -1; font-size: 0.7rem; color: var(--muted); text-align: center; }
-
-    /* FOOTER */
-    footer { background: var(--charcoal); padding: 4rem 8vw 2rem; }
-    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .footer-brand .nav-logo { color: #fff; font-size: 1.4rem; display: inline-block; margin-bottom: 1rem; }
-    .footer-brand p { font-size: 0.78rem; color: rgba(255,255,255,0.4); line-height: 1.75; max-width: 250px; }
-    .footer-col h5 { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.2rem; font-weight: 700; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-    .footer-col ul a { font-size: 0.78rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-    .footer-col ul a:hover { color: var(--gold-light); }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; color: rgba(255,255,255,0.25); }
-
-    /* ANIMATIONS */
-    .fade-up { opacity: 0; transform: translateY(26px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .fade-up.visible { opacity: 1; transform: none; }
-
-    /* RESPONSIVE */
-    @media (max-width: 1100px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-right { display: none; }
-      .hero-left { padding: 4rem 6vw; }
-      .why-us { grid-template-columns: 1fr; gap: 3rem; }
-      .booking { grid-template-columns: 1fr; gap: 3rem; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .areas-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .services-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-      .process-steps::before { display: none; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-      .why-right { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 0.8rem; text-align: center; }
-      .urgency-strip { flex-direction: column; text-align: center; }
-      .areas-grid { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta property="og:image" content="https://www.whiteclothcleaning.co.uk/og-image.jpg" />
 </head>
 <body>
 
@@ -274,7 +61,7 @@
   </div>
 
   <nav>
-    <a href="#" class="nav-logo">White <span>Cloth</span></a>
+    <a href="/" class="nav-logo">White <span>Cloth</span></a>
     <ul class="nav-links">
       <li><a href="services/domestic-cleaning.html">Domestic</a></li>
       <li><a href="services/deep-cleaning.html">Deep Clean</a></li>
@@ -519,37 +306,37 @@
       <p class="section-sub">Based in Hertfordshire and proud to serve every corner of the county. Not sure if we cover your postcode? Just ask.</p>
     </div>
     <div class="areas-grid">
-      <a href="#booking" class="area-card fade-up">
+      <a href="locations/cleaning-watford.html" class="area-card fade-up">
         <h3>Watford</h3>
         <p>Domestic, deep &amp; end of tenancy cleaning throughout Watford and WD postcodes.</p>
         <div class="area-link-label">Book in Watford →</div>
       </a>
-      <a href="#booking" class="area-card fade-up" style="transition-delay:0.07s">
+      <a href="locations/cleaning-st-albans.html" class="area-card fade-up" style="transition-delay:0.07s">
         <h3>St Albans</h3>
         <p>Premium home cleaning across St Albans, AL1, AL2 and surrounding villages.</p>
         <div class="area-link-label">Book in St Albans →</div>
       </a>
-      <a href="#booking" class="area-card fade-up" style="transition-delay:0.14s">
+      <a href="locations/cleaning-hemel-hempstead.html" class="area-card fade-up" style="transition-delay:0.14s">
         <h3>Hemel Hempstead</h3>
         <p>Trusted cleaners throughout Hemel Hempstead and HP1, HP2, HP3 postcodes.</p>
         <div class="area-link-label">Book in Hemel →</div>
       </a>
-      <a href="#booking" class="area-card fade-up" style="transition-delay:0.21s">
+      <a href="locations/cleaning-berkhamsted.html" class="area-card fade-up" style="transition-delay:0.21s">
         <h3>Berkhamsted</h3>
         <p>Luxury home cleaning throughout Berkhamsted and the HP4 area.</p>
         <div class="area-link-label">Book in Berkhamsted →</div>
       </a>
-      <a href="#booking" class="area-card fade-up">
+      <a href="locations/cleaning-radlett.html" class="area-card fade-up">
         <h3>Radlett</h3>
         <p>Professional cleaners serving Radlett, WD7 and the wider Hertsmere area.</p>
         <div class="area-link-label">Book in Radlett →</div>
       </a>
-      <a href="#booking" class="area-card fade-up" style="transition-delay:0.07s">
+      <a href="locations/cleaning-harpenden.html" class="area-card fade-up" style="transition-delay:0.07s">
         <h3>Harpenden</h3>
         <p>Expert domestic &amp; deep cleaning across Harpenden and AL5 postcodes.</p>
         <div class="area-link-label">Book in Harpenden →</div>
       </a>
-      <a href="#booking" class="area-card fade-up" style="transition-delay:0.14s">
+      <a href="locations/cleaning-chorleywood.html" class="area-card fade-up" style="transition-delay:0.14s">
         <h3>Chorleywood</h3>
         <p>Trusted home cleaning in Chorleywood, WD3 and the Chiltern border area.</p>
         <div class="area-link-label">Book in Chorleywood →</div>
@@ -680,7 +467,7 @@
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#" class="nav-logo">White <span>Cloth</span></a>
+        <a href="/" class="nav-logo">White <span>Cloth</span></a>
         <p>Hertfordshire's premium cleaning service. Trusted by hundreds of homeowners across Watford, St Albans, Hemel Hempstead, Berkhamsted and beyond.</p>
       </div>
       <div class="footer-col">
@@ -714,7 +501,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2025 White Cloth Cleaning · Hertfordshire · All rights reserved.</span>
-      <span>Privacy Policy · Terms of Service</span>
+      <span><a href="privacy.html" style="color:inherit">Privacy Policy</a> · <a href="terms.html" style="color:inherit">Terms of Service</a></span>
     </div>
   </footer>
 

@@ -4,21 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Cleaning Hertfordshire | White Cloth Cleaning | Quote on request</title>
-  <meta name="description" content="Our deep cleaning service goes far beyond a regular clean. We reach every corner, every surface, and every area of your home that everyday cleaning doesn't" />
+  <meta name="description" content="Professional deep cleaning across Hertfordshire by White Cloth Cleaning. We reach every corner, surface and appliance your regular clean misses. Serving Watford, St Albans, Hemel Hempstead, Berkhamsted and beyond." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.whiteclothcleaning.co.uk/services/deep-cleaning.html" />
   <meta property="og:title" content="Deep Cleaning Hertfordshire | White Cloth Cleaning | Quote on request" />
-  <meta property="og:description" content="Our deep cleaning service goes far beyond a regular clean. We reach every corner, every surface, and every area of your home that everyday cleaning doesn't" />
+  <meta property="og:description" content="Professional deep cleaning across Hertfordshire by White Cloth Cleaning. We reach every corner, surface and appliance your regular clean misses." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.whiteclothcleaning.co.uk/services/deep-cleaning.html" />
-  <link rel="stylesheet" href="/style.css" />
+  <meta property="og:image" content="https://www.whiteclothcleaning.co.uk/og-image.jpg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="../style.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Deep Cleaning Hertfordshire",
     "provider": {"@type": "LocalBusiness", "name": "White Cloth Cleaning", "telephone": "+44-XXXX-XXXXXX", "areaServed": "Hertfordshire"},
-    "description": "Our deep cleaning service goes far beyond a regular clean. We reach every corner, every surface, and every area of your ",
+    "description": "Professional deep cleaning across Hertfordshire by White Cloth Cleaning. We reach every corner, surface and appliance your regular clean misses. Serving Watford, St Albans, Hemel Hempstead, Berkhamsted and beyond.",
     "areaServed": "Hertfordshire",
     "url": "https://www.whiteclothcleaning.co.uk/services/deep-cleaning.html"
   }
@@ -164,20 +166,20 @@
         <div class="form-heading">Request a free quote</div>
         <div class="form-subheading">We respond within 60 minutes during business hours</div>
         <form class="form-grid" onsubmit="handleSubmit(event)" novalidate>
-          <div class="form-group"><label for="fname">First Name</label><input type="text" id="fname" placeholder="Jane" required /></div>
-          <div class="form-group"><label for="lname">Last Name</label><input type="text" id="lname" placeholder="Smith" required /></div>
-          <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="jane@email.com" required /></div>
-          <div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone" placeholder="07XXX XXXXXX" required /></div>
+          <div class="form-group"><label for="fname">First Name</label><input type="text" id="fname" name="fname" placeholder="Jane" required /></div>
+          <div class="form-group"><label for="lname">Last Name</label><input type="text" id="lname" name="lname" placeholder="Smith" required /></div>
+          <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="jane@email.com" required /></div>
+          <div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="07XXX XXXXXX" required /></div>
           <div class="form-group full"><label for="service">Service Required</label>
-            <select id="service" required>
+            <select id="service" name="service" required>
               <option value="" disabled selected>Select a service...</option>
-              <option>Domestic Clean — from £20/hr</option>
-              <option>Deep Clean — quote on request</option>
-              <option>End of Tenancy — quote on request</option>
+              <option value="domestic">Domestic Clean — from £20/hr</option>
+              <option value="deep">Deep Clean — quote on request</option>
+              <option value="eot">End of Tenancy — quote on request</option>
             </select>
           </div>
           <div class="form-group full"><label for="area">Your Area</label>
-            <select id="area" required>
+            <select id="area" name="area" required>
               <option value="" disabled selected>Select your area...</option>
               <option>Watford</option><option>St Albans</option><option>Hemel Hempstead</option>
               <option>Berkhamsted</option><option>Radlett</option><option>Harpenden</option>
@@ -186,7 +188,7 @@
             </select>
           </div>
           <div class="form-group full"><label for="message">Property Details</label>
-            <textarea id="message" placeholder="E.g. 3-bed house, weekly clean needed, have a dog..."></textarea>
+            <textarea id="message" name="message" placeholder="E.g. 3-bed house, weekly clean needed, have a dog..."></textarea>
           </div>
           <button type="submit" class="form-submit">Send My Free Quote Request →</button>
           <p class="form-note">We respond within 60 minutes · Hertfordshire · No spam, ever</p>
