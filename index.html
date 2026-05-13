@@ -47,12 +47,13 @@
   }
   </script>
 
+  <link rel="preload" as="image" href="images/hero-kitchen.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <meta property="og:image" content="https://www.whiteclothcleaning.co.uk/og-image.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -122,7 +123,7 @@
       </div>
     </div>
     <div class="hero-right" aria-hidden="true">
-      <img src="images/hero-kitchen.jpg" alt="Luxury clean home in Hertfordshire">
+      <img src="images/hero-kitchen.jpg" alt="Luxury clean home in Hertfordshire" width="1024" height="1536" loading="eager" fetchpriority="high">
       <div class="hero-badge">
         <div class="hero-badge-stars">★★★★★</div>
         <div class="hero-badge-text">"Worth every penny. My St Albans home has never looked this good."</div>
