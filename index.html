@@ -400,7 +400,7 @@
       <div class="booking-form">
         <div class="form-heading">Request a free quote</div>
         <div class="form-subheading">We'll respond within 60 minutes during business hours</div>
-        <form class="form-grid" onsubmit="handleSubmit(event)" novalidate>
+        <form class="form-grid" action="https://formspree.io/f/xojrbgzp" method="POST">
           <div class="form-group">
             <label for="fname">First Name</label>
             <input type="text" id="fname" name="fname" placeholder="Jane" required />
@@ -501,18 +501,6 @@
   </footer>
 
   <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.form-submit');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = '✓ Sent! We\'ll be in touch within 60 minutes.';
-        btn.style.background = '#4a7c4e';
-        e.target.reset();
-      }, 1200);
-    }
-
     window.addEventListener('load', () => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
