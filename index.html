@@ -53,7 +53,8 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <meta property="og:image" content="https://www.whiteclothcleaning.co.uk/og-image.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 </head>
 <body>
 
@@ -71,13 +72,13 @@
       <li><a href="#testimonials">Reviews</a></li>
       <li><a href="#booking" class="nav-cta">Free Quote</a></li>
     </ul>
-    <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
+    <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false" onclick="document.getElementById('mobileMenu').classList.add('open'); this.setAttribute('aria-expanded','true')">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+    <button class="mobile-close" aria-label="Close navigation menu" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
     <a href="#services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Services</a>
     <a href="#areas" onclick="document.getElementById('mobileMenu').classList.remove('open')">Areas</a>
     <a href="#testimonials" onclick="document.getElementById('mobileMenu').classList.remove('open')">Reviews</a>
